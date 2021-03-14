@@ -48,7 +48,6 @@ header .header-top {
 
 
 .main-header {
-    position: absolute;
     z-index: 999;
     width: 100%;
 }
@@ -483,11 +482,9 @@ body.dark .navbar-toggler[aria-expanded="true"] .navbar-toggler-icon {
     padding-top: 220px;
     padding-bottom: 100px;
     background-color: #f0f5fb;
-    position: relative;
 }
 
 .banner-layer{
-    position: absolute;
     left: 0;
     right: 0;
     top: 0;
