@@ -45,3 +45,38 @@ $("#switch").on('click', function () {
 });  
 
 })(jQuery); 
+
+
+/// owl carousel 
+
+$(document).ready(function() {
+	var owl = $('#company');
+	owl.owlCarousel({
+	  items: 4,
+	  dots:false,
+	  loop: true,
+	  margin: 10,
+	  autoplay: true,
+	  autoplayTimeout: 1000,
+	  autoplayHoverPause: false
+	});
+	$('.play').on('click', function() {
+	  owl.trigger('play.owl.autoplay', [1000])
+	})
+	$('.stop').on('click', function() {
+	  owl.trigger('stop.owl.autoplay')
+	})
+  })
+ 
+  $(document).ready(function() {
+	var owl = $('#university');
+	owl.owlCarousel({
+	  items: 4,
+	  loop: true,
+	  dots:false,
+	  margin: 10,
+	  autoplay: true,
+	  autoplayTimeout: 1000,
+	  autoplayHoverPause: false
+	});
+  })
