@@ -44,6 +44,22 @@ $("#switch").on('click', function () {
 	}
 });  
 
+
+// count numbers
+
+$('.count-number').each(function() {
+	$(this).prop('Counter', 0).animate({
+	  Counter: $(this).text()
+	}, {
+	  duration: 3000,
+	  easing: 'swing',
+	  step: function(now) {
+		$(this).text(Math.ceil(now));
+	  }
+	});
+  });
+
+
 })(jQuery); 
 
 
@@ -58,14 +74,23 @@ $(document).ready(function() {
 	  margin: 10,
 	  autoplay: true,
 	  autoplayTimeout: 1000,
-	  autoplayHoverPause: false
+	  autoplayHoverPause: false,
+	  responsiveClass:true,
+	  responsive:{
+		  0:{
+			  items:2,
+		  },
+		  600:{
+			  items:3,
+			  nav:false
+		  },
+		  1000:{
+			  items:4,
+			  loop:false
+		  }
+	  }
 	});
-	$('.play').on('click', function() {
-	  owl.trigger('play.owl.autoplay', [1000])
-	})
-	$('.stop').on('click', function() {
-	  owl.trigger('stop.owl.autoplay')
-	})
+	
   })
  
   $(document).ready(function() {
@@ -77,6 +102,105 @@ $(document).ready(function() {
 	  margin: 10,
 	  autoplay: true,
 	  autoplayTimeout: 1000,
-	  autoplayHoverPause: false
+	  autoplayHoverPause: false,
+	  responsiveClass:true,
+	  responsive:{
+		  0:{
+			  items:2
+		  },
+		  600:{
+			  items:3,
+			  nav:false
+		  },
+		  1000:{
+			  items:4,
+			  loop:false
+		  }
+	  }
 	});
   })
+
+
+
+  // list grid view
+
+  const listViewButton = document.querySelector('.list-view-button');
+const gridViewButton = document.querySelector('.grid-view-button');
+const list = document.querySelector('ol');
+
+listViewButton.onclick = function () {
+  list.classList.remove('grid-view-filter');
+  list.classList.add('list-view-filter');
+}
+
+gridViewButton.onclick = function () {
+  list.classList.remove('list-view-filter');
+  list.classList.add('grid-view-filter');
+}
+
+
+
+//password validation
+
+
+// var myInput = document.getElementById("psw");
+// var letter = document.getElementById("letter");
+// var capital = document.getElementById("capital");
+// var number = document.getElementById("number");
+// var length = document.getElementById("length");
+
+
+
+// // When the user starts to type something inside the password field
+// myInput.onkeyup = function() {
+//   // Validate lowercase letters
+//   var lowerCaseLetters = /[a-z]/g;
+//   if(myInput.value.match(lowerCaseLetters)) {  
+//     letter.classList.remove("invalid");
+//     letter.classList.add("valid");
+//   } else {
+//     letter.classList.remove("valid");
+//     letter.classList.add("invalid");
+//   }
+  
+//   // Validate capital letters
+//   var upperCaseLetters = /[A-Z]/g;
+//   if(myInput.value.match(upperCaseLetters)) {  
+//     capital.classList.remove("invalid");
+//     capital.classList.add("valid");
+//   } else {
+//     capital.classList.remove("valid");
+//     capital.classList.add("invalid");
+//   }
+
+//   // Validate numbers
+//   var numbers = /[0-9]/g;
+//   if(myInput.value.match(numbers)) {  
+//     number.classList.remove("invalid");
+//     number.classList.add("valid");
+//   } else {
+//     number.classList.remove("valid");
+//     number.classList.add("invalid");
+//   }
+  
+//   // Validate length
+//   if(myInput.value.length >= 8) {
+//     length.classList.remove("invalid");
+//     length.classList.add("valid");
+//   } else {
+//     length.classList.remove("valid");
+//     length.classList.add("invalid");
+//   }
+// }
+
+
+
+// upload photo
+var loadFile = function(event) {
+	var image = document.getElementById('output');
+	image.src = URL.createObjectURL(event.target.files[0]);
+};
+
+
+// counted numbers
+
